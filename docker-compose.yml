@@ -12,7 +12,7 @@ services:
     networks:
       - my_network
     environment:
-      - - MONGODB=${MONGODB}
+      - MONGODB=${MONGODB}
 
   node_app_2:
     build:
@@ -25,7 +25,7 @@ services:
     networks:
       - my_network
     environment:
-      - - MONGODB=${MONGODB}
+      - MONGODB=${MONGODB}
 
   node_app_3:
     build:
@@ -38,19 +38,19 @@ services:
     networks:
       - my_network
     environment:
-      - - MONGODB=${MONGODB}
+      - MONGODB=${MONGODB}
 
   proyecto_grande:
     build:
       context: ./GestorProyectosIUD
       dockerfile: Dockerfile
-      
+
     ports:
       - "3000:3000"
     networks:
       - my_network
     environment:
-      - - MONGODB=${MONGODB}
+      - MONGODB=${MONGODB}
 
   nginx:
     build:
