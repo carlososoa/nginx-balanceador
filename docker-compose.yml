@@ -1,0 +1,63 @@
+version: '3'
+services:
+  
+  node_app_1:
+    build:
+      context: ./MicroGestorProyectosIUD
+      dockerfile: Dockerfile
+    ports:
+      - "3001"
+    networks:
+      - my_network
+    environment:
+      - - MONGODB=${MONGODB}
+
+  node_app_2:
+    build:
+      context: ./MicroGestorProyectosIUD
+      dockerfile: Dockerfile
+    ports:
+      - "3001"
+    networks:
+      - my_network
+    environment:
+      - - MONGODB=${MONGODB}
+
+  node_app_3:
+    build:
+      context: ./MicroGestorProyectosIUD
+      dockerfile: Dockerfile
+    ports:
+      - "3001"
+    networks:
+      - my_network
+    environment:
+      - - MONGODB=${MONGODB}
+
+  proyecto_grande:
+    build:
+      context: ./GestorProyectosIUD
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - my_network
+    environment:
+      - - MONGODB=${MONGODB}
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"    
+    depends_on:
+      - node_app_1
+      - node_app_2
+      - node_app_3
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
