@@ -5,6 +5,8 @@ services:
     build:
       context: ./MicroGestorProyectosIUD
       dockerfile: Dockerfile
+      args:
+        MONGODB: ${MONGODB}
     ports:
       - "3001"
     networks:
@@ -16,6 +18,8 @@ services:
     build:
       context: ./MicroGestorProyectosIUD
       dockerfile: Dockerfile
+      args:
+        MONGODB: ${MONGODB}
     ports:
       - "3001"
     networks:
@@ -27,6 +31,8 @@ services:
     build:
       context: ./MicroGestorProyectosIUD
       dockerfile: Dockerfile
+      args:
+        MONGODB: ${MONGODB}
     ports:
       - "3001"
     networks:
@@ -38,6 +44,7 @@ services:
     build:
       context: ./GestorProyectosIUD
       dockerfile: Dockerfile
+      
     ports:
       - "3000:3000"
     networks:
